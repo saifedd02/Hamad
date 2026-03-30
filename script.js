@@ -157,9 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ========================================
-    // SCROLL ANIMATIONS
+    // SCROLL ANIMATIONS (enhanced)
     // ========================================
     function initAnimations() {
+        // Main animation observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -175,7 +176,79 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[data-animate]').forEach(el => {
             observer.observe(el);
         });
+
+        // Stagger animation observer
+        const staggerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    staggerObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('[data-stagger]').forEach(el => {
+            staggerObserver.observe(el);
+        });
+
+        // Section divider observer
+        document.querySelectorAll('.section-divider').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Gold reveal line observer
+        document.querySelectorAll('.gold-reveal-line').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Section glow observer
+        const glowObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.section-glow').forEach(el => {
+            glowObserver.observe(el);
+        });
     }
+
+    // ========================================
+    // SCROLL PARALLAX (mobile + desktop)
+    // ========================================
+    (function initParallax() {
+        const sections = document.querySelectorAll('.section');
+        let ticking = false;
+
+        function onScroll() {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                const scrollY = window.scrollY;
+                const winH = window.innerHeight;
+
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    const sectionTop = rect.top + scrollY;
+                    const progress = (scrollY + winH - sectionTop) / (winH + rect.height);
+
+                    if (progress > 0 && progress < 1) {
+                        const header = section.querySelector('.section-header');
+                        if (header && header.classList.contains('visible')) {
+                            const shift = (progress - 0.5) * -18;
+                            header.style.transform = `translate(0, 0) translateY(${shift}px)`;
+                        }
+                    }
+                });
+
+                ticking = false;
+            });
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+    })();
 
     // ========================================
     // COUNTER ANIMATION
@@ -223,29 +296,56 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========================================
     // VIDEO GALLERY
     // ========================================
+    const isMobile = !window.matchMedia('(hover: hover)').matches;
+
+    // Auto-play videos when they scroll into view
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                video.muted = true;
+                video.play().then(() => {
+                    video.closest('.video-container').classList.add('video-loaded');
+                }).catch(() => {});
+            } else {
+                video.pause();
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.result-card video').forEach(video => {
+        videoObserver.observe(video);
+    });
+
+    // Play button: tap to unmute/mute on mobile, click to play/pause on desktop
     document.querySelectorAll('.play-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
             const container = btn.closest('.video-container');
             const video = container.querySelector('video');
             const overlay = container.querySelector('.video-overlay');
-            const placeholder = container.querySelector('.video-placeholder-text');
 
-            if (video.src && !video.error) {
-                if (video.paused) {
-                    video.muted = false;
-                    video.play().catch(() => {
-                        // Video file not found - do nothing
-                    });
-                    overlay.style.opacity = '0';
-                    overlay.style.pointerEvents = 'none';
-                    if (placeholder) placeholder.style.display = 'none';
+            if (video.paused) {
+                video.muted = false;
+                video.play().catch(() => {});
+                overlay.style.opacity = '0';
+                overlay.style.pointerEvents = 'none';
 
-                    video.addEventListener('ended', () => {
-                        overlay.style.opacity = '';
-                        overlay.style.pointerEvents = '';
-                    }, { once: true });
+                video.addEventListener('ended', () => {
+                    overlay.style.opacity = '';
+                    overlay.style.pointerEvents = '';
+                }, { once: true });
+            } else {
+                // Toggle mute/unmute on tap
+                if (isMobile) {
+                    video.muted = !video.muted;
+                    if (!video.muted) {
+                        overlay.style.opacity = '0';
+                        overlay.style.pointerEvents = 'none';
+                    }
                 } else {
                     video.pause();
+                    video.muted = true;
                     overlay.style.opacity = '';
                     overlay.style.pointerEvents = '';
                 }
@@ -253,8 +353,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Mobile: tap on video to show/hide overlay
+    if (isMobile) {
+        document.querySelectorAll('.result-card').forEach(card => {
+            const video = card.querySelector('video');
+            const overlay = card.querySelector('.video-overlay');
+            if (video && overlay) {
+                card.addEventListener('click', () => {
+                    if (overlay.style.opacity === '0') {
+                        overlay.style.opacity = '';
+                        overlay.style.pointerEvents = '';
+                    }
+                });
+            }
+        });
+    }
+
     // Hover play for videos on desktop
-    if (window.matchMedia('(hover: hover)').matches) {
+    if (!isMobile) {
         document.querySelectorAll('.result-card').forEach(card => {
             const video = card.querySelector('video');
             if (video) {
