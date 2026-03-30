@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair & Cut | Premium Barbershop Dortmund</title>
+    <meta name="description" content="Hair & Cut - Premium Barbershop in Dortmund. Meisterhafte Haarschnitte, Bartstyling und mehr. Jetzt Termin buchen!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✂️</text></svg>">
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-scissors">
+            <svg viewBox="0 0 100 60" class="scissors-svg">
+                <path class="blade-left" d="M50 30 L10 5 Q5 2 3 8 L40 30 L3 52 Q5 58 10 55 L50 30Z" fill="#D4A437"/>
+                <path class="blade-right" d="M50 30 L90 5 Q95 2 97 8 L60 30 L97 52 Q95 58 90 55 L50 30Z" fill="#D4A437"/>
+                <circle cx="42" cy="30" r="6" fill="none" stroke="#D4A437" stroke-width="2"/>
+                <circle cx="58" cy="30" r="6" fill="none" stroke="#D4A437" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="loader-text">HAIR & CUT</div>
+    </div>
+
+    <!-- Cursor Glow -->
+    <div id="cursor-glow"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <svg viewBox="0 0 50 50" width="40" height="40">
+                    <circle cx="25" cy="25" r="23" fill="none" stroke="#D4A437" stroke-width="1.5"/>
+                    <text x="25" y="32" text-anchor="middle" fill="#D4A437" font-size="22">✂</text>
+                </svg>
+            </a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">Über uns</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="#results" class="nav-link">Ergebnisse</a>
+                <a href="#reviews" class="nav-link">Bewertungen</a>
+                <a href="#contact" class="nav-link">Kontakt</a>
+            </div>
+            <a href="#booking" class="nav-cta">Termin buchen</a>
+            <button class="nav-burger" id="navBurger" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="#about" class="mobile-link">Über uns</a>
+            <a href="#services" class="mobile-link">Services</a>
+            <a href="#team" class="mobile-link">Team</a>
+            <a href="#results" class="mobile-link">Ergebnisse</a>
+            <a href="#reviews" class="mobile-link">Bewertungen</a>
+            <a href="#contact" class="mobile-link">Kontakt</a>
+            <a href="#booking" class="mobile-link mobile-cta">Termin buchen</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg-image" style="position:absolute;inset:0;z-index:0;">
+            <img src="images/hero-salon.png" alt="Hair & Cut Barbershop Dortmund" style="width:100%;height:100%;object-fit:cover;opacity:0.35;">
+        </div>
+        <div class="hero-bg-video">
+            <!-- Hexagonal pattern overlay -->
+            <canvas id="hexCanvas"></canvas>
+        </div>
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-badge" data-animate="fade-down">
+                <span class="badge-line"></span>
+                <span>PREMIUM BARBERSHOP</span>
+                <span class="badge-line"></span>
+            </div>
+            <h1 class="hero-title" data-animate="fade-up">
+                <span class="title-line">HAIR</span>
+                <span class="title-ampersand">&</span>
+                <span class="title-line">CUT</span>
+            </h1>
+            <p class="hero-subtitle" data-animate="fade-up" data-delay="200">
+                <span class="subtitle-dash"></span>
+                DORTMUND
+                <span class="subtitle-dash"></span>
+            </p>
+            <p class="hero-tagline" data-animate="fade-up" data-delay="400">
+                Wo jeder Schnitt ein <span class="gold-text">Meisterwerk</span> ist
+            </p>
+            <div class="hero-stats" data-animate="fade-up" data-delay="600">
+                <div class="stat">
+                    <div class="stat-number" data-count="4.9">0</div>
+                    <div class="stat-label">Google Rating</div>
+                    <div class="stat-stars">★★★★★</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-number" data-count="129">0</div>
+                    <div class="stat-label">Bewertungen</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <div class="stat-number" data-count="5">0</div>
+                    <div class="stat-label">Barber</div>
+                </div>
+            </div>
+            <div class="hero-actions" data-animate="fade-up" data-delay="800">
+                <a href="#booking" class="btn btn-primary">
+                    <span>Jetzt Termin buchen</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#services" class="btn btn-outline">
+                    <span>Entdecken</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">ÜBER UNS</span>
+                <h2 class="section-title">Mehr als nur ein <span class="gold-text">Haarschnitt</span></h2>
+                <p class="section-desc">Willkommen bei Hair & Cut in der Dortmunder Innenstadt. Wir verbinden traditionelle Barbier-Kunst mit modernem Style.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card" data-animate="fade-right" data-delay="0">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <span class="card-number">01</span>
+                    <h3>Präzision</h3>
+                    <p>Jeder Schnitt mit höchster Sorgfalt und Liebe zum Detail ausgeführt</p>
+                </div>
+                <div class="about-card" data-animate="fade-right" data-delay="150">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                    </div>
+                    <span class="card-number">02</span>
+                    <h3>Qualität</h3>
+                    <p>Nur erstklassige Produkte und bewährte Techniken für perfekte Ergebnisse</p>
+                </div>
+                <div class="about-card" data-animate="fade-right" data-delay="300">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <span class="card-number">03</span>
+                    <h3>Pünktlichkeit</h3>
+                    <p>Respekt für Ihre Zeit &ndash; keine Wartezeiten, feste Termine</p>
+                </div>
+                <div class="about-card" data-animate="fade-right" data-delay="450">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <span class="card-number">04</span>
+                    <h3>Erfahrung</h3>
+                    <p>Langjährige Expertise in allen Styles &ndash; klassisch bis modern</p>
+                </div>
+            </div>
+
+            <!-- Salon Gallery -->
+            <div class="salon-gallery" data-animate="fade-up" data-delay="200">
+                <div class="gallery-item gallery-item-large">
+                    <img src="images/salon-front.png" alt="Hair & Cut Salon - Frontansicht mit Hexagon-Decke" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/salon-chairs.png" alt="Barbershop Stühle mit Best Barber Capes" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/drinks.png" alt="Getränke-Service - Tee, Saft, Kaffee" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/products.png" alt="Premium Produkte - Morfose, Redist" loading="lazy">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/salon-rear.png" alt="Barber bei der Arbeit" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-section">
+        <div class="marquee">
+            <div class="marquee-content">
+                <span>FADE</span><span class="marquee-dot">✦</span>
+                <span>SKIN FADE</span><span class="marquee-dot">✦</span>
+                <span>BART</span><span class="marquee-dot">✦</span>
+                <span>RASUR</span><span class="marquee-dot">✦</span>
+                <span>STYLING</span><span class="marquee-dot">✦</span>
+                <span>DAUERWELLE</span><span class="marquee-dot">✦</span>
+                <span>HAARSCHNITT</span><span class="marquee-dot">✦</span>
+                <span>BARTPFLEGE</span><span class="marquee-dot">✦</span>
+                <span>FADE</span><span class="marquee-dot">✦</span>
+                <span>SKIN FADE</span><span class="marquee-dot">✦</span>
+                <span>BART</span><span class="marquee-dot">✦</span>
+                <span>RASUR</span><span class="marquee-dot">✦</span>
+                <span>STYLING</span><span class="marquee-dot">✦</span>
+                <span>DAUERWELLE</span><span class="marquee-dot">✦</span>
+                <span>HAARSCHNITT</span><span class="marquee-dot">✦</span>
+                <span>BARTPFLEGE</span><span class="marquee-dot">✦</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">UNSERE SERVICES</span>
+                <h2 class="section-title">Premium <span class="gold-text">Dienstleistungen</span></h2>
+                <p class="section-desc">Erstklassige Barbier-Kunst &ndash; von klassisch bis modern</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-animate="fade-up" data-delay="0">
+                    <div class="service-image">
+                        <img src="images/tools-closeup.png" alt="Herrenhaarschnitt - Werkzeuge" loading="lazy" class="service-img">
+                        <div class="service-time">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            30 Min
+                        </div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Herrenhaarschnitt</h3>
+                        <p>Klassischer oder moderner Schnitt nach Ihren Wünschen</p>
+                        <div class="service-bottom">
+                            <div class="service-price">
+                                <span class="price-from">AB</span>
+                                <span class="price-amount">25&euro;</span>
+                            </div>
+                            <a href="#booking" class="btn btn-small">
+                                Buchen
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-animate="fade-up" data-delay="150">
+                    <div class="service-image">
+                        <img src="images/gold-clippers.png" alt="Bartstyling - Gold Master Clippers" loading="lazy" class="service-img">
+                        <div class="service-time">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            20 Min
+                        </div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Bartstyling</h3>
+                        <p>Professionelle Bartpflege und -formung für den perfekten Look</p>
+                        <div class="service-bottom">
+                            <div class="service-price">
+                                <span class="price-from">AB</span>
+                                <span class="price-amount">15&euro;</span>
+                            </div>
+                            <a href="#booking" class="btn btn-small">
+                                Buchen
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-animate="fade-up" data-delay="300">
+                    <div class="service-image">
+                        <img src="images/blue-clippers.png" alt="Haarschnitt und Bart - Clippers" loading="lazy" class="service-img">
+                        <div class="service-time">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            45 Min
+                        </div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Haarschnitt + Bart</h3>
+                        <p>Das Komplettpaket &ndash; Haarschnitt und Bartstyling in einem</p>
+                        <div class="service-bottom">
+                            <div class="service-price">
+                                <span class="price-from">AB</span>
+                                <span class="price-amount">35&euro;</span>
+                            </div>
+                            <a href="#booking" class="btn btn-small">
+                                Buchen
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card" data-animate="fade-up" data-delay="450">
+                    <div class="service-image">
+                        <img src="images/salon-front.png" alt="Skin Fade - Salon" loading="lazy" class="service-img">
+                        <div class="service-time">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            30 Min
+                        </div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Skin Fade</h3>
+                        <p>Präziser Skin Fade &ndash; sauber, scharf, perfekt</p>
+                        <div class="service-bottom">
+                            <div class="service-price">
+                                <span class="price-from">AB</span>
+                                <span class="price-amount">30&euro;</span>
+                            </div>
+                            <a href="#booking" class="btn btn-small">
+                                Buchen
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card service-card-special" data-animate="fade-up" data-delay="300">
+                    <div class="service-image">
+                        <img src="images/damen-bereich.png" alt="Damen & Dauerwelle Bereich" loading="lazy" class="service-img">
+                        <div class="service-badge-whatsapp">Nur per WhatsApp</div>
+                    </div>
+                    <div class="service-info">
+                        <h3>Damen & Dauerwelle</h3>
+                        <p>Spezialservice für Damen und Dauerwellen &ndash; bitte per WhatsApp anfragen</p>
+                        <div class="service-bottom">
+                            <div class="service-price">
+                                <span class="price-from">PREIS</span>
+                                <span class="price-amount">Auf Anfrage</span>
+                            </div>
+                            <a href="https://wa.me/491630118468?text=Hallo%2C%20ich%20möchte%20gerne%20einen%20Termin%20für%20Damen%2FDauerwelle%20vereinbaren." class="btn btn-small btn-whatsapp" target="_blank" rel="noopener">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.115 0-4.142-.588-5.904-1.699l-.424-.252-2.746.72.733-2.68-.276-.44A9.72 9.72 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="section team">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">UNSER TEAM</span>
+                <h2 class="section-title">Die <span class="gold-text">Meister</span> am Werk</h2>
+                <p class="section-desc">Unser Team aus erfahrenen Barbern sorgt für Ihren perfekten Look</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card" data-animate="fade-up" data-delay="0">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">H</div>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <h3>Hamad</h3>
+                    <span class="team-role">Master Barber & Inhaber</span>
+                    <div class="team-specialties">
+                        <span>Fade</span><span>Skin Fade</span><span>Styling</span>
+                    </div>
+                </div>
+                <div class="team-card" data-animate="fade-up" data-delay="100">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">M</div>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <h3>Mohammed</h3>
+                    <span class="team-role">Senior Barber</span>
+                    <div class="team-specialties">
+                        <span>Haarschnitt</span><span>Bart</span>
+                    </div>
+                </div>
+                <div class="team-card" data-animate="fade-up" data-delay="200">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">I</div>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <h3>Ibo</h3>
+                    <span class="team-role">Barber</span>
+                    <div class="team-specialties">
+                        <span>Classic Cut</span><span>Rasur</span>
+                    </div>
+                </div>
+                <div class="team-card" data-animate="fade-up" data-delay="300">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">D</div>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <h3>Diar</h3>
+                    <span class="team-role">Barber</span>
+                    <div class="team-specialties">
+                        <span>Modern Cuts</span><span>Styling</span>
+                    </div>
+                </div>
+                <div class="team-card" data-animate="fade-up" data-delay="400">
+                    <div class="team-avatar">
+                        <div class="avatar-placeholder">A</div>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <h3>Amer</h3>
+                    <span class="team-role">Barber</span>
+                    <div class="team-specialties">
+                        <span>Fade</span><span>Bartpflege</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results / Video Gallery -->
+    <section id="results" class="section results">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">ERGEBNISSE</span>
+                <h2 class="section-title">Unsere <span class="gold-text">Arbeit</span> spricht</h2>
+                <p class="section-desc">Überzeugen Sie sich selbst von unseren Ergebnissen</p>
+            </div>
+            <div class="results-grid results-grid-portrait">
+                <div class="result-card" data-animate="fade-up" data-delay="0">
+                    <div class="video-container video-portrait">
+                        <video src="videos/5c64d0d0e37b43e7b9d203ac242dfcbc_xJVYZndT.mp4" muted playsinline preload="metadata"></video>
+                        <div class="video-overlay">
+                            <button class="play-btn" aria-label="Video abspielen">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card" data-animate="fade-up" data-delay="100">
+                    <div class="video-container video-portrait">
+                        <video src="videos/6831ff5d-df17-42be-bbce-e2a546881f82_zBL9aBff.mp4" muted playsinline preload="metadata"></video>
+                        <div class="video-overlay">
+                            <button class="play-btn" aria-label="Video abspielen">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card" data-animate="fade-up" data-delay="200">
+                    <div class="video-container video-portrait">
+                        <video src="videos/b707fbd4-0aed-4d2e-8260-9fc71c397634_c50uhos7.mp4" muted playsinline preload="metadata"></video>
+                        <div class="video-overlay">
+                            <button class="play-btn" aria-label="Video abspielen">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card" data-animate="fade-up" data-delay="300">
+                    <div class="video-container video-portrait">
+                        <video src="videos/1b9a4754c9fd43328835708782301e81.MOV" muted playsinline preload="metadata"></video>
+                        <div class="video-overlay">
+                            <button class="play-btn" aria-label="Video abspielen">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card" data-animate="fade-up" data-delay="400">
+                    <div class="video-container video-portrait">
+                        <video src="videos/68b03b3d319a4a3c9de09b028d897719.MOV" muted playsinline preload="metadata"></video>
+                        <div class="video-overlay">
+                            <button class="play-btn" aria-label="Video abspielen">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card" data-animate="fade-up" data-delay="500">
+                    <div class="video-container video-portrait">
+                        <video src="videos/7ad4fabcd27d4df78b0a425df0f01289.MOV" muted playsinline preload="metadata"></video>
+                        <div class="video-overlay">
+                            <button class="play-btn" aria-label="Video abspielen">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-card" data-animate="fade-up" data-delay="600">
+                    <div class="video-container video-portrait">
+                        <video src="videos/c6825508e1f542d3a05f3529c0577ce2.MOV" muted playsinline preload="metadata"></video>
+                        <div class="video-overlay">
+                            <button class="play-btn" aria-label="Video abspielen">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="results-tiktok" data-animate="fade-up">
+                <p>Mehr Ergebnisse auf TikTok</p>
+                <a href="https://www.tiktok.com/@hamad_hair_cut_" target="_blank" rel="noopener" class="btn btn-outline">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.78a8.18 8.18 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.21z"/></svg>
+                    @hamad_hair_cut_
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="section reviews">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">KUNDENSTIMMEN</span>
+                <h2 class="section-title">Was unsere <span class="gold-text">Kunden</span> sagen</h2>
+            </div>
+            <div class="reviews-highlight" data-animate="fade-up">
+                <div class="review-score">
+                    <span class="score-number">4.9</span>
+                    <div class="score-stars">★★★★★</div>
+                    <span class="score-count">129 Google Rezensionen</span>
+                </div>
+            </div>
+            <div class="reviews-carousel" data-animate="fade-up">
+                <div class="reviews-track" id="reviewsTrack">
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p>Absolut top! Der beste Friseur in Dortmund. Professioneller Service, tolle Atmosphäre und ein perfektes Ergebnis. Komme gerne wieder!</p>
+                        <div class="review-author">
+                            <div class="author-avatar">M</div>
+                            <div>
+                                <strong>Mehmet K.</strong>
+                                <span>vor 2 Wochen</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p>Bester Barbershop in der Stadt! Die Jungs wissen genau was sie tun. Hamad ist ein echter Meister seines Fachs. Kann ich nur empfehlen!</p>
+                        <div class="review-author">
+                            <div class="author-avatar">A</div>
+                            <div>
+                                <strong>Ali R.</strong>
+                                <span>vor 1 Monat</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p>Ich gehe seit Monaten nur noch hierhin. Top Schnitt, faire Preise und man fühlt sich sofort wohl. Die Atmosphäre ist einfach unschlagbar!</p>
+                        <div class="review-author">
+                            <div class="author-avatar">T</div>
+                            <div>
+                                <strong>Tarek S.</strong>
+                                <span>vor 3 Wochen</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p>Super freundliches Team und immer pünktlich. Der Fade sitzt jedes Mal perfekt. Getränke gibt es auch &ndash; was will man mehr?</p>
+                        <div class="review-author">
+                            <div class="author-avatar">D</div>
+                            <div>
+                                <strong>Daniel W.</strong>
+                                <span>vor 1 Woche</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-quote">"</div>
+                        <div class="review-stars">★★★★★</div>
+                        <p>Endlich ein Barbershop wo man sich wie ein König fühlt. Premium Service zu fairen Preisen. Jeder Besuch ist ein Erlebnis!</p>
+                        <div class="review-author">
+                            <div class="author-avatar">K</div>
+                            <div>
+                                <strong>Karim B.</strong>
+                                <span>vor 2 Monaten</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn" id="prevReview" aria-label="Vorherige Bewertung">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                    <button class="carousel-btn" id="nextReview" aria-label="Nächste Bewertung">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="section booking">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">TERMIN BUCHEN</span>
+                <h2 class="section-title">Jetzt <span class="gold-text">Termin</span> vereinbaren</h2>
+                <p class="section-desc">Wählen Sie Ihren Barber, Service und Wunschtermin</p>
+            </div>
+            <div class="booking-container" data-animate="fade-up">
+                <form id="bookingForm" class="booking-form">
+                    <div class="form-group">
+                        <label for="clientName">Ihr Name</label>
+                        <input type="text" id="clientName" name="name" required placeholder="Max Mustermann">
+                    </div>
+                    <div class="form-group">
+                        <label for="clientPhone">Telefonnummer</label>
+                        <input type="tel" id="clientPhone" name="phone" required placeholder="+49 123 456789">
+                    </div>
+                    <div class="form-group">
+                        <label>Barber wählen</label>
+                        <div class="barber-select">
+                            <label class="barber-option">
+                                <input type="radio" name="barber" value="Hamad" required>
+                                <div class="barber-chip">
+                                    <span class="chip-avatar">H</span>
+                                    Hamad
+                                </div>
+                            </label>
+                            <label class="barber-option">
+                                <input type="radio" name="barber" value="Mohammed">
+                                <div class="barber-chip">
+                                    <span class="chip-avatar">M</span>
+                                    Mohammed
+                                </div>
+                            </label>
+                            <label class="barber-option">
+                                <input type="radio" name="barber" value="Ibo">
+                                <div class="barber-chip">
+                                    <span class="chip-avatar">I</span>
+                                    Ibo
+                                </div>
+                            </label>
+                            <label class="barber-option">
+                                <input type="radio" name="barber" value="Diar">
+                                <div class="barber-chip">
+                                    <span class="chip-avatar">D</span>
+                                    Diar
+                                </div>
+                            </label>
+                            <label class="barber-option">
+                                <input type="radio" name="barber" value="Amer">
+                                <div class="barber-chip">
+                                    <span class="chip-avatar">A</span>
+                                    Amer
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceSelect">Service</label>
+                        <select id="serviceSelect" name="service" required>
+                            <option value="" disabled selected>Service wählen...</option>
+                            <option value="Herrenhaarschnitt (25€)">Herrenhaarschnitt - ab 25€</option>
+                            <option value="Bartstyling (15€)">Bartstyling - ab 15€</option>
+                            <option value="Haarschnitt + Bart (35€)">Haarschnitt + Bart - ab 35€</option>
+                            <option value="Skin Fade (30€)">Skin Fade - ab 30€</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="bookingDate">Datum</label>
+                            <input type="date" id="bookingDate" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bookingTime">Uhrzeit</label>
+                            <input type="time" id="bookingTime" name="time" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingNote">Anmerkungen (optional)</label>
+                        <textarea id="bookingNote" name="note" rows="3" placeholder="Besondere Wünsche..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.115 0-4.142-.588-5.904-1.699l-.424-.252-2.746.72.733-2.68-.276-.44A9.72 9.72 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                        <span>Termin per WhatsApp buchen</span>
+                    </button>
+                </form>
+                <div class="booking-info">
+                    <div class="info-card">
+                        <h4>So funktioniert&rsquo;s</h4>
+                        <div class="info-steps">
+                            <div class="info-step">
+                                <div class="step-num">1</div>
+                                <p>Formular ausfüllen</p>
+                            </div>
+                            <div class="info-step">
+                                <div class="step-num">2</div>
+                                <p>WhatsApp Nachricht wird automatisch erstellt</p>
+                            </div>
+                            <div class="info-step">
+                                <div class="step-num">3</div>
+                                <p>Hamad bestätigt Ihren Termin</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card opening-hours">
+                        <h4>Öffnungszeiten</h4>
+                        <ul>
+                            <li><span>Montag</span><span>10:00 - 19:00</span></li>
+                            <li><span>Dienstag</span><span>10:00 - 19:00</span></li>
+                            <li><span>Mittwoch</span><span>10:00 - 19:00</span></li>
+                            <li><span>Donnerstag</span><span>10:00 - 19:00</span></li>
+                            <li><span>Freitag</span><span>10:00 - 19:00</span></li>
+                            <li><span>Samstag</span><span>09:00 - 18:00</span></li>
+                            <li class="closed"><span>Sonntag</span><span>Geschlossen</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Location Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header" data-animate="fade-up">
+                <span class="section-tag">KONTAKT</span>
+                <h2 class="section-title">Besuchen Sie <span class="gold-text">uns</span></h2>
+                <p class="section-desc">Wir freuen uns auf Ihren Besuch in unserem Salon in der Dortmunder Innenstadt</p>
+            </div>
+            <div class="contact-grid" data-animate="fade-up">
+                <div class="contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.5!2d7.4665!3d51.5135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMwJzQ4LjYiTiA3wrAyNyc1OS40IkU!5e0!3m2!1sde!2sde!4v1"
+                        width="100%"
+                        height="400"
+                        style="border:0; border-radius: 16px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        title="Hair & Cut Standort">
+                    </iframe>
+                    <div class="map-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="#D4A437" stroke="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="#0a0a0a"/></svg>
+                        <div>
+                            <strong>HAIR & CUT</strong>
+                            <span>Hansastraße 14-16, 44137 Dortmund</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-cards">
+                    <a href="tel:+491630118468" class="contact-card">
+                        <div class="contact-icon" style="--accent: #4CAF50;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <span class="contact-label">ANRUFEN</span>
+                            <strong>+49 163 0118468</strong>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/491630118468?text=Hallo%2C%20ich%20möchte%20gerne%20einen%20Termin%20bei%20Hair%20%26%20Cut%20buchen." class="contact-card" target="_blank" rel="noopener">
+                        <div class="contact-icon" style="--accent: #25D366;">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.115 0-4.142-.588-5.904-1.699l-.424-.252-2.746.72.733-2.68-.276-.44A9.72 9.72 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                        </div>
+                        <div>
+                            <span class="contact-label">WHATSAPP</span>
+                            <strong>Chat starten</strong>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/hamad_hair_cut_/" class="contact-card" target="_blank" rel="noopener">
+                        <div class="contact-icon" style="--accent: #E1306C;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </div>
+                        <div>
+                            <span class="contact-label">INSTAGRAM</span>
+                            <strong>@hamad_hair_cut_</strong>
+                        </div>
+                    </a>
+                    <a href="https://www.tiktok.com/@hamad_hair_cut_" class="contact-card" target="_blank" rel="noopener">
+                        <div class="contact-icon" style="--accent: #fff;">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.78a8.18 8.18 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.21z"/></svg>
+                        </div>
+                        <div>
+                            <span class="contact-label">TIKTOK</span>
+                            <strong>@hamad_hair_cut_</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <svg viewBox="0 0 50 50" width="50" height="50">
+                        <circle cx="25" cy="25" r="23" fill="none" stroke="#D4A437" stroke-width="1.5"/>
+                        <text x="25" y="32" text-anchor="middle" fill="#D4A437" font-size="22">✂</text>
+                    </svg>
+                    <div>
+                        <h3>HAIR & CUT</h3>
+                        <span>Premium Barbershop Dortmund</span>
+                    </div>
+                </div>
+                <a href="#booking" class="btn btn-primary">Termin buchen</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Hair & Cut Dortmund. Alle Rechte vorbehalten.</p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/hamad_hair_cut_/" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@hamad_hair_cut_" target="_blank" rel="noopener" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.78a8.18 8.18 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.21z"/></svg>
+                    </a>
+                    <a href="https://wa.me/491630118468" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/491630118468?text=Hallo%2C%20ich%20möchte%20gerne%20einen%20Termin%20bei%20Hair%20%26%20Cut%20buchen."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener"
+       aria-label="WhatsApp Chat">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.634-1.215A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.115 0-4.142-.588-5.904-1.699l-.424-.252-2.746.72.733-2.68-.276-.44A9.72 9.72 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
