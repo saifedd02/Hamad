@@ -1071,7 +1071,16 @@ input, select, textarea { font-family: inherit; }
     color: var(--gold);
     letter-spacing: 0.05em;
     display: block;
+    margin-bottom: 8px;
+}
+
+.team-tagline {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    line-height: 1.4;
     margin-bottom: 16px;
+    padding: 0 8px;
 }
 
 .team-specialties {
