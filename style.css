@@ -973,6 +973,141 @@ input, select, textarea { font-family: inherit; }
 }
 
 /* ========================================
+   PRICE LIST
+   ======================================== */
+.price-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.price-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.price-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: border-color var(--transition);
+}
+
+.price-card:hover {
+    border-color: var(--border-hover);
+}
+
+.price-card-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(212,164,55,0.15);
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-table td {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    vertical-align: baseline;
+}
+
+.price-table tr:last-child td {
+    border-bottom: none;
+}
+
+.price-table td:last-child {
+    text-align: right;
+    white-space: nowrap;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--gold);
+    padding-left: 12px;
+}
+
+.price-table small {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 1px;
+}
+
+.price-highlight td {
+    background: rgba(212,164,55,0.06);
+    font-weight: 600;
+}
+
+.price-highlight td:first-child {
+    border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+    padding-left: 8px;
+}
+
+.price-highlight td:last-child {
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding-right: 8px;
+}
+
+.price-card-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.price-card-small {
+    padding: 20px;
+}
+
+.price-card-small .price-card-title {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+}
+
+.price-card-small .price-table td {
+    padding: 6px 0;
+    font-size: 0.82rem;
+}
+
+.price-card-small .price-table td:last-child {
+    font-size: 1rem;
+}
+
+.price-cta {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--gold);
+    color: #000;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all var(--transition);
+}
+
+.btn-gold:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212,164,55,0.3);
+}
+
+/* ========================================
    TEAM SECTION
    ======================================== */
 .team {
@@ -1796,6 +1931,20 @@ input, select, textarea { font-family: inherit; }
     font-size: 0.95rem;
 }
 
+.parking-card {
+    border-color: rgba(212,164,55,0.2);
+    background: rgba(212,164,55,0.04);
+    cursor: default;
+}
+
+.parking-details {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-top: 4px;
+}
+
 @media (max-width: 768px) {
     .contact-grid {
         grid-template-columns: 1fr;
@@ -1887,38 +2036,6 @@ input, select, textarea { font-family: inherit; }
 /* ========================================
    WHATSAPP FLOAT BUTTON
    ======================================== */
-.whatsapp-float {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #25D366;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 900;
-    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-    transition: all var(--transition);
-    animation: whatsappPulse 2s ease-in-out infinite;
-}
-
-.whatsapp-float svg {
-    width: 28px;
-    height: 28px;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 8px 30px rgba(37,211,102,0.5);
-}
-
-@keyframes whatsappPulse {
-    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
-    50% { box-shadow: 0 4px 30px rgba(37,211,102,0.6), 0 0 0 10px rgba(37,211,102,0.1); }
-}
 
 /* ========================================
    SCROLL ANIMATIONS
@@ -2126,7 +2243,11 @@ input, select, textarea { font-family: inherit; }
         grid-template-columns: 1fr;
     }
 
-    .services-grid {
+    .price-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-card-row {
         grid-template-columns: 1fr;
     }
 
@@ -2149,10 +2270,17 @@ input, select, textarea { font-family: inherit; }
         width: 20px;
     }
 
-    /* Service Cards mit Gold-Glow auf Mobile */
-    .service-card {
-        border-color: rgba(212,164,55,0.1);
-        box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    /* Price List Mobile */
+    .price-card {
+        padding: 18px;
+    }
+
+    .price-table td {
+        font-size: 0.82rem;
+    }
+
+    .price-table td:last-child {
+        font-size: 1rem;
     }
 
     /* Team Cards: subtiler Gold-Schimmer */
@@ -2231,17 +2359,6 @@ input, select, textarea { font-family: inherit; }
         padding: 32px 0 24px;
     }
 
-    /* WhatsApp Button kleiner auf kleinen Screens */
-    .whatsapp-float {
-        width: 52px;
-        height: 52px;
-        bottom: 16px;
-        right: 16px;
-    }
-    .whatsapp-float svg {
-        width: 24px;
-        height: 24px;
-    }
 }
 
 /* Video loading shimmer animation */

@@ -596,4 +596,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
 });
