@@ -16,4 +16,4 @@ Anschließend `http://localhost:8000` öffnen. Der Aufruf dient nur der lokalen 
 
 ## Projektstand
 
-Website-Projekt mit Schwerpunkt auf responsiver Darstellung und Kontaktaufnahme. Die enthaltene ZIP-Datei ist eine zusätzliche Projektkopie und wird zum Ausführen nicht benötigt.
+Website-Projekt mit Schwerpunkt auf responsiver Darstellung und Kontaktaufnahme.
